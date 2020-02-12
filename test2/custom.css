@@ -1,0 +1,35 @@
+.table-div
+{
+    margin: 5%;
+}
+.table td,th
+{
+    text-align: center;
+}
+.test2 
+{
+    margin: 3% 15% 3% 15%;
+    padding: 3% 3% 7% 3%;
+    color: #5c5c5c;
+}
+.cbtn
+{
+     background-color: #83867b;
+     color:white;
+     width: 200px;
+     height: 55px;
+     font-size: 1.5vw;
+     border: 2px solid white;
+     cursor: pointer;
+     border-radius: 5px;
+     text-align: center;
+}
+.cbtn:hover {
+  background-color: white;
+  color: #83867b;
+  border: 2px solid #83867b;
+ }
+ .error
+{
+    color: #ff3258;
+}
