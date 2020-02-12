@@ -1,0 +1,201 @@
+.showcase
+{
+	background-image: url("../images/inner_page_banner/who_we_help.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    max-width: 100%;
+    height: auto;
+}
+.showcase h1
+{
+	display: block;
+	margin: 0px;
+    color: #fff;
+    text-align: center;
+    font-family: 'robotoslab-bold';
+    width: 100%;
+}
+.table-div
+{
+    margin: 5%;
+}
+.table td,th
+{
+    text-align: center;
+}
+.slide-img
+{
+    width: 100%;
+    background-size: cover;
+}
+.category-form
+{
+	margin: 3% 15% 3% 15%;
+	padding: 3% 3% 7% 3%;
+	color: #5c5c5c;
+}
+.product-form 
+{
+    margin: 3% 15% 3% 15%;
+    padding: 3% 3% 7% 3%;
+    color: #5c5c5c;
+}
+.cbtn
+{
+     background-color: #A9CA24;
+     color:white;
+     width: 200px;
+     height: 55px;
+     font-size: 1.5vw;
+     border: 2px solid rgba(255,255,255,0.8);
+     cursor: pointer;
+     border-radius: 5px;
+     text-align: center;
+}
+.cbtn:hover {
+  background-color: white;
+  color: #A9CA24;
+  border: 2px solid #A9CA24;
+ }
+
+ .fbtn
+{
+     background-color: #A9CA24;
+     color:white;
+     width: 98%;
+     height: 55px;
+     font-size: 1.3vw;
+     border: 2px solid #A9CA24;
+     cursor: pointer;
+     border-radius: 5px;
+     text-align: center;
+}
+.fbtn:hover {
+  background-color: white;
+  color: #A9CA24;
+  border: 2px solid #A9CA24;
+ }
+
+
+ .dbtn
+{
+     width: 100%;
+     height: auto;
+     font-size: 1.5vw;
+     border: 2px solid rgba(255,255,255,0.8);
+     cursor: pointer;
+     border-radius: 5px;
+     text-align: center;
+}
+.dbtn:hover {
+  background-color: #6b6d64;
+ }
+ .footer1
+ {
+ 	background-color: #83867B;
+ }
+ .footer2,
+ .footer3
+ {
+ 	background-color: #333333;
+ }
+ .footer2
+ {
+    padding-top: 6%;
+    display: flex;
+    justify-content: center;
+ }
+ .footer3
+ {
+    display: flex;
+    justify-content: center;
+ }
+ /*.footer2l-left,
+ .footer2l-right
+ {
+    margin-left: 15%;
+ }*/
+ .footer2r-left
+ {
+    color:#C2C2C2 ;
+    font-family: sans-serif;
+    font-weight: 150;
+    font-size: 1.4rem;
+ }
+ .footer2r-right
+ {
+    display: flex;
+    justify-content: center;
+ }
+ .footer4
+ {
+    background-color: #141414;
+ }
+ .footer2 h1
+ {
+ 	font-family: DauphinPlain; 
+ 	font-weight: 150; 
+ 	color: #F9F9F9; 
+ 	font-style: oblique;
+}
+.footer3-left h3,
+.footer3-center h3,
+.footer3-right h3
+{
+    font-family: verdana; 
+    color: #F9F9F9;
+    font-weight: 60;
+    text-align: left;
+    font-size: 1.4rem;
+}
+.footer3-left p
+{
+    text-align: left; 
+    line-height: 25px;
+}
+.footer3-left span.header
+{
+    color: #b7b7b7;
+    font-size: 1rem;
+}
+.footer3-left span.content
+{
+    color: #848383;
+    font-size: 1rem;
+}
+.footer3-center ul,
+.footer3-right ul
+{
+    color: #848383;
+    font-family: verdana;
+    text-align: left; 
+}
+.footer3-center ul
+{
+    margin: 0;
+    padding: 0;
+    margin-left: 3%;
+    list-style-image:url('../images/icon8.png'); 
+}
+.footer3-right ul
+{
+    list-style-image:url('../images/icon9.png'); 
+    margin-left: 2%; 
+    padding: 0;
+}
+.footer4-left a
+{
+    text-decoration: none;
+    color: #999595;
+}
+.footer4-center p,
+.footer4-right p
+{
+    color: #999595;
+    font-size: 15px;
+}
+.error
+{
+    color: #ff3258;
+}
