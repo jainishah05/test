@@ -196,7 +196,7 @@
 		    <hr>
 		    <center>
 		    	<?php if($update == true):?>
-					<button type="submit" class="cbtn mt-2" name="update"><b>Update</b></button>
+					<button type="submit" class="cbtn mt-2" id="update" onclick="return update_msg(ev);" name="update"><b>Update</b></button>
 				<?php else: ?>		
 		    		<button type="submit" name="submit" class="cbtn mt-2"><b>Submit</b> </button>
 		    	<?php endif; ?>	

@@ -1,1 +1,0 @@
-Hello,I am created using fopen and fwrite!! Now My creator used 'a' mode to append text into me!!
