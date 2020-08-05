@@ -1,0 +1,53 @@
+{
+    "fields": [{
+            "name": "firstname",
+            "type": "string"
+        },
+        {
+            "name": "lastname",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "email"
+        },
+        {
+            "name": "password",
+            "type": "password"
+        },
+        {
+            "name": "password_confirmation",
+            "type": "password"
+        },
+        {
+            "name": "status",
+            "type": "radio"
+        },
+        {
+            "name": "role",
+            "type": "select",
+            "options": {
+                "admin": "Admin"
+            }
+        }
+    ],
+
+    "relationships": [{
+        "name": "user",
+        "type": "belongsTo",
+        "class": "App\\User"
+    }],
+    "validations": [{
+            "field": "firstname",
+            "rules": "required"
+        },
+        {
+            "field": "lastname",
+            "rules": "required"
+        },
+        {
+            "field": "email",
+            "rules": "required|email:rfc,dns"
+        }
+    ]
+}

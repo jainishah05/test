@@ -1,0 +1,577 @@
+ <!-- header -->
+  @include('layouts.header')
+  <!-- login -->
+  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="login px-sm-4 mx-auto mw-100">
+            <h5 class="text-center mb-4">Login Now</h5>
+            <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //login -->
+  <!-- register -->
+  <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="login px-sm-4 mx-auto mw-100">
+            <h5 class="text-center mb-4">Register Now</h5>
+             <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+
+                                @error('firstname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+
+                                @error('lastname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //register -->
+  <!-- //header -->
+
+  <!-- banner -->
+  <div class="callbacks_container">
+    <ul class="rslides" id="slider3">
+      <li>
+        <div class="slider-info bg1">
+          <div class="w3l-overlay">
+            <div class="banner-text text-center container">
+              <h3 class="text-white mb-md-4 mb-3"> 
+                <span>Tasty Snacks</span>
+              </h3>
+              <p class="movetxt text-white mb-4">Find Delivery Outlet near you</p>
+              <div class="search-agile">
+                <form action="#" method="post">
+                  <input type="search" name="search" placeholder="Search here..." required="">
+                  <input type="submit" value="Search">
+                  <div class="clearfix"> </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="slider-info bg2">
+          <div class="w3l-overlay">
+            <div class="banner-text text-center container">
+              <h3 class="text-white mb-md-4 mb-3"> 
+                <span>Tasty Snacks</span>
+              </h3>
+              <p class="movetxt text-white mb-4">Find Delivery Outlet near you</p>
+              <div class="search-agile">
+                <form action="#" method="post">
+                  <input type="search" name="search" placeholder="Search here..." required="">
+                  <input type="submit" value="Search">
+                  <div class="clearfix"> </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- //banner -->
+
+  <!-- about -->
+  <div class="about py-5" id="about">
+    <div class="container py-xl-5 py-lg-3">
+      <h3 class="title text-center text-dark mb-sm-5 mb-4">
+        <span>Welcome to our Snacks</span> world's no.1 tasty food</h3>
+      <div class="row about-bottom-w3l text-center pt-lg-5">
+        <div class="col-sm-6 about-grid">
+          <div class="about-grid-main">
+            <img src="images/a1.jpg" alt="" class="img-fluid">
+            <h4 class="mb-3">Clean & Continental Place</h4>
+            <a href="#" class="button-w3ls mt-4" data-toggle="modal" data-target="#exampleModalCenter1">Read About it
+              <i class="fas fa-long-arrow-alt-right ml-3"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 about-grid mt-sm-0 mt-4">
+          <div class="about-grid-main">
+            <img src="images/a2.jpg" alt="" class="img-fluid">
+            <h4 class="mb-3">100% Healthy Food</h4>
+            <a href="#" class="button-w3ls mt-4" data-toggle="modal" data-target="#exampleModalCenter1">Read About it
+              <i class="fas fa-long-arrow-alt-right ml-3"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //about -->
+
+  <!-- services -->
+  <div class="w3ls-middle pt-5" id="services">
+    <div class="container py-xl-5 py-lg-3">
+      <h3 class="title text-center text-dark mb-sm-5 mb-4">
+        <span>The great advantages</span> of a hotel is that it is a refuge from home life</h3>
+        <center>
+        <a href="#" class="button-w3ls mt-4" data-toggle="modal" data-target="#exampleModalCenter1">Read About Advantages
+            <i class="fas fa-long-arrow-alt-right ml-3"></i>
+        </a>
+      </center>
+    </div>
+  </div>
+  <!-- //services -->
+
+  <!-- middle section one -->
+  <div class="w3ls-middle-works py-5 text-center" id="specials">
+    <div class="py-xl-5 py-lg-3">
+      <h3 class="title text-center text-dark mb-lg-5">
+        <span>Fresh, organic ingredients,</span>Carefully prepared, Eat green for a reason.</h3>
+      <a href="#" class="button-w3ls my-4 text-center" data-toggle="modal" data-target="#exampleModalCenter1">Read more about Specials
+        <i class="fas fa-long-arrow-alt-right ml-3"></i>
+      </a>
+      <div class="d-flex special-agiles text-left">
+        <div class="col-md-6 grids-w3ls-left">
+          <p class="mb-2 text-white">Our Specials</p>
+          <h4 class="title text-dark mb-md-4">Carefully prepared, Fresh, organic ingredients.</h4>
+          <a href="#" class="button-w3ls mt-4" data-toggle="modal" data-target="#exampleModalCenter1">Show More
+            <i class="fas fa-long-arrow-alt-right ml-3"></i>
+          </a>
+        </div>
+        <div class="col-md-6 grids-w3ls-right">
+          <img src="images/middle.jpg" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //middle section one -->
+
+  <!-- gallery -->
+  <div class="gallery pt-5" id="gallery">
+    <div class="container py-xl-5 py-lg-3">
+      <div class="row gallery_grids">
+        <div class="col-4 agile-gallery_grid_main">
+          <div class="gallery-img-grid gallery_grid1 hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g1.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g1.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-img-grid hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g2.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g2.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-img-grid hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g3.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g3.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 agile-gallery_grid_main">
+          <div class="gallery-img-grid hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g7.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g7.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-img-grid hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g8.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g8.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 agile-gallery_grid_main">
+          <div class="gallery-img-grid gallery_grid1 hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g4.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g4.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-img-grid hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g5.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g5.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="gallery-img-grid hover14 column">
+            <div class="gallery_effect">
+              <a href="images/g6.jpg" class="sb" title="quis nostrud exercitation ullamco laboris quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum">
+                <figure>
+                  <img src="images/g6.jpg" alt=" " class="img-fluid" />
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //gallery -->
+
+  <!-- contact -->
+  <div class="address py-5" id="contact">
+    <div class="container py-xl-5 py-lg-3">
+      <h3 class="title text-center text-dark mb-sm-5 mb-4">
+        <span>Contact US</span> world's no.1 tasty food</h3>
+      <div class="row address-row pt-lg-5">
+        <div class="col-lg-6">
+          <div class="address-right p-sm-5 p-4">
+            <div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
+              <h4 class="mb-3">Address</h4>
+              <p>123 San Sebastian, Hill Towers 4567,
+                <span>New York City, USA</span>
+              </p>
+            </div>
+            <div class="address-info address-mdl wow fadeInRight animated my-sm-5 my-4" data-wow-delay=".7s">
+              <h4 class="mb-3">Phone </h4>
+              <p>+222 111 333 4444</p>
+              <p>+222 111 333 5555</p>
+            </div>
+            <div class="address-info agileits-info wow fadeInRight animated" data-wow-delay=".6s">
+              <h4 class="mb-3">Mail</h4>
+              <p>
+                <a href="mailto:example@mail.com"> mail@example.com</a>
+              </p>
+              <p>
+                <a href="mailto:example@mail.com"> mail2@example.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 address-left wow agile fadeInLeft animated mt-lg-0 mt-5" data-wow-delay=".5s">
+          <div class="address-grid p-sm-5 p-4">
+            <h4 class="wow fadeIndown animated mb-3" data-wow-delay=".5s">Get In Touch</h4>
+            <form action="#" method="post">
+              <div class="form-group">
+                <input type="text" placeholder="Name" name="name" class="form-control" required="">
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Email" name="email" class="form-control" required="">
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Message"  name="Message" class="form-control" required=""></textarea>
+              </div>
+              <input type="submit" value="SEND">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//contact-->
+
+  <!-- footer -->
+  <footer class="pt-5">
+    <div class="container py-xl-5 py-lg-3">
+      <div class="row footer-grids py-4">
+        <div class="col-lg-4 footer-grid text-left">
+          <div class="footer-logo">
+            <h2 class="mb-3">
+              <a class="logo text-white" href="index.html">
+                <i class="fas fa-utensils mr-2"></i>Snacks</a>
+            </h2>
+          </div>
+        </div>
+        <div class="col-lg-2 col-6  footer-grid my-lg-0 my-4">
+          <h3 class="mb-sm-4 mb-3 pb-3">Home</h3>
+          <ul class="list-unstyled">
+            <li>
+              <a href="index.html">Index</a>
+            </li>
+            <li class="my-2">
+              <a class="scroll" href="#about">About</a>
+            </li>
+            <li>
+              <a class="scroll" href="#services">Services</a>
+            </li>
+            <li class="my-2">
+              <a class="scroll" href="#gallery">Gallery</a>
+            </li>
+            <li>
+              <a class="scroll" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6 footer-grid my-lg-0 my-4">
+          <h3 class="mb-sm-4 mb-3 pb-3"> Navigation </h3>
+          <ul class="list-unstyled">
+            <li>
+              <a class="scroll" href="#services">Advantages</a>
+            </li>
+            <li class="my-2">
+              <a class="scroll" href="#specials">Specials</a>
+            </li>
+            <li>
+              <a class="scroll" href="#some">Some More</a>
+            </li>
+            <li class="my-2">
+              <a class="scroll" href="#gallery">Gallery</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6 footer-grid">
+          <h3 class="mb-sm-4 mb-3 pb-3"> Company</h3>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#">Link Here</a>
+            </li>
+            <li class="my-2">
+              <a href="#">Link Here</a>
+            </li>
+            <li>
+              <a href="#">Link Here</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6 footer-grid footer-contact">
+          <h3 class="mb-sm-4 mb-3 pb-3"> Contact Us</h3>
+          <ul class="list-unstyled">
+            <li>
+              +01(24) 8543 8088
+            </li>
+            <li class="mt-2">
+              <a href="mailto:info@example.com">info@example.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- copyright -->
+    <div class="copy_right">
+      <p class="text-center text-white py-sm-4 py-3">© 2018 Snacks. All rights reserved | Design by
+        <a href="http://w3layouts.com/">W3layouts</a>
+      </p>
+
+    </div>
+    <!-- //copyright -->
+  </footer>
+  <!-- //footer -->
+
+
+  <!-- Js files -->
+  <!-- JavaScript -->
+  <script src="js/jquery-2.2.3.min.js"></script>
+  <!-- Default-JavaScript-File -->
+
+  <!-- banner slider -->
+  <script src="js/responsiveslides.min.js"></script>
+  <script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+      // Slideshow 4
+      $("#slider3").responsiveSlides({
+        auto: true,
+        pager: true,
+        nav: false,
+        speed: 500,
+        namespace: "callbacks",
+        before: function () {
+          $('.events').append("<li>before event fired.</li>");
+        },
+        after: function () {
+          $('.events').append("<li>after event fired.</li>");
+        }
+      });
+
+    });
+  </script>
+  <!-- //banner slider -->
+
+  <!-- password-script -->
+  <script>
+    window.onload = function () {
+      document.getElementById("password1").onchange = validatePassword;
+      document.getElementById("password2").onchange = validatePassword;
+    }
+
+    function validatePassword() {
+      var pass2 = document.getElementById("password2").value;
+      var pass1 = document.getElementById("password1").value;
+      if (pass1 != pass2)
+        document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+      else
+        document.getElementById("password2").setCustomValidity('');
+      //empty string means no validation error
+    }
+  </script>
+  <!-- //password-script -->
+
+  <!-- gallery light box -->
+  <script src="js/smoothbox.jquery2.js"></script>
+  <!-- //gallery light box -->
+
+  <!-- smooth scrolling -->
+  <script src="js/SmoothScroll.min.js"></script>
+  <!-- //smooth scrolling -->
+
+  <!-- move-top -->
+  <script src="js/move-top.js"></script>
+  <!-- easing -->
+  <script src="js/easing.js"></script>
+  <!--  necessary snippets for few javascript files -->
+  <script src="js/snacks.js"></script>
+
+  <script src="js/bootstrap.js"></script>
+  <!-- Necessary-JavaScript-File-For-Bootstrap -->
+  <!-- //Js files -->

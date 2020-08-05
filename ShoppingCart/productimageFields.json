@@ -1,0 +1,11 @@
+{
+    "fields": [{
+            "name": "product_id",
+            "type": "integer"
+        },
+        {
+            "name": "image",
+            "type": "file"
+        }
+    ]
+}

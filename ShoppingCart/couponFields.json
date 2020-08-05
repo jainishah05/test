@@ -1,0 +1,27 @@
+{
+    "fields": [{
+            "name": "coupon_code",
+            "type": "string"
+        },
+        {
+            "name": "amount",
+            "type": "integer"
+        },
+        {
+            "name": "amount_type",
+            "type": "select",
+            "options": {
+                "percentage": "Percentage",
+                "fixec": "Fixed"
+            }
+        },
+        {
+            "name": "expiry_date",
+            "type": "date"
+        },
+        {
+            "name": "status",
+            "type": "boolean"
+        }
+    ]
+}

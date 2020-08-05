@@ -1,0 +1,15 @@
+{
+    "fields": [{
+            "name": "slug",
+            "type": "string"
+        },
+        {
+            "name": "subject",
+            "type": "string"
+        },
+        {
+            "name": "message",
+            "type": "longtext"
+        }
+    ]
+}
