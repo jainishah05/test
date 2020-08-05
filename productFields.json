@@ -1,0 +1,37 @@
+{
+    "fields": [{
+            "name": "category_id",
+            "type": "integer"
+        },
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "product_code",
+            "type": "string"
+        },
+        {
+            "name": "product_color",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "type": "text"
+        },
+        {
+            "name": "price",
+            "type": "float"
+        },
+        {
+            "name": "image",
+            "type": "file"
+        }
+    ],
+
+    "relationships": [{
+        "name": "user",
+        "type": "belongsTo",
+        "class": "App\\User"
+    }],
+}
